@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Recommendation System</title>
+</head>
+<body>
+    <h1>Recommendation System</h1>
+    <form method="post">
+        <label for="user_item_id">Enter UserID or ItemID:</label>
+        <input type="text" id="user_item_id" name="user_item_id" required>
+        <button type="submit">Get Recommendations</button>
+    </form>
+    {% if recommendations %}
+        <h2>Collaborative Filtering Recommendations</h2>
+        <ul>
+            {% for rec in recommendations.collaborative %}
+                <li>{{ rec }}</li>
+            {% endfor %}
+        </ul>
+        <h2>Content Filtering Recommendations</h2>
+        <ul>
+            {% for rec in recommendations.content %}
+                <li>{{ rec }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
